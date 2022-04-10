@@ -10,35 +10,73 @@
 </head>
 
 <body>
-    <div style="text-align: center">
-        <span>请输入视频地址：</span>
-        <input id="url" type="text" style="width: 500px;">
-        <button id="play" onclick="play()" style="width: 100px;">播放</button>
+    <div id="main">
+        <div id="submit">
+            <span>请输入视频地址：</span>
+            <input id="url" type="text">
+            <button id="play" onclick="play()">播放</button>
+            <hr>
+        </div>
+        <div id="player"></div>
     </div>
-    <hr>
-    <div id="player"></div>
-    <script>
-        var player = new Clappr.Player({
-            source: "https://vodkgeyttp8.vod.126.net/cloudmusic/7535/core/dee8/54e729a6899811f6ac33001c9ec140ca.mp4?wsSecret=dbcbf88183a7f21aafed56993b43f7da&wsTime=1649345958",
-            parentId: "#player",
-            height: 915,
-            width: 1903,
-            autoPlay: true,
-            loop:true
-        });
-        var input = document.getElementById("url");
-        input.addEventListener("keyup", function (event) {
-            event.preventDefault();
-            if (event.keyCode === 13) {
-                document.getElementById("play").click();
-            }
-        });
-        function play() {
-            player.load(document.getElementById("url").value)
-        }
-
-    </script>
 </body>
 
+<script>
+    var player = new Clappr.Player({
+        source: 'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4',
+        parentId: "#player",
+        height: '100%',
+        width: '100%',
+        autoPlay: true,
+        loop: true,
+    });
+    var input = document.getElementById("url");
+    input.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("play").click();
+        }
+    });
+
+    function play() {
+        player.load(document.getElementById("url").value)
+    }
+</script>
+
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0
+    }
+    
+    input {
+        width: 500px;
+    }
+    
+    button {
+        width: 100px;
+    }
+    
+    div {
+        text-align: center
+    }
+    
+    #main {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column
+    }
+    
+    #submit {
+        margin: 8px 8px 0px 8px
+    }
+    
+    #player {
+        flex: 1;
+        margin: 0px 8px 8px 8px
+    }
+</style>
 
 </html>
