@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@clappr/player@latest/dist/clappr.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Clappr</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@clappr/player@latest/dist/clappr.min.js"></script>
 </head>
 
 <body>
@@ -19,63 +19,63 @@
         </div>
         <div id="player"></div>
     </div>
+    <script>
+        var player = new Clappr.Player({
+            source: 'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4',
+            parentId: "#player",
+            height: '100%',
+            width: '100%',
+            autoPlay: true,
+            loop: true,
+        })
+
+        var input = document.getElementById("url");
+        input.addEventListener("keyup", function (event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                document.getElementById("play").click();
+            }
+        })
+
+        function play() {
+            player.load(document.getElementById("url").value)
+            document.getElementById("url").value = ""
+        }
+    </script>
 </body>
 
-<script>
-    var player = new Clappr.Player({
-        source: 'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4',
-        parentId: "#player",
-        height: '100%',
-        width: '100%',
-        autoPlay: true,
-        loop: true,
-    });
-    var input = document.getElementById("url");
-    input.addEventListener("keyup", function(event) {
-        event.preventDefault();
-        if (event.keyCode === 13) {
-            document.getElementById("play").click();
-        }
-    });
-
-    function play() {
-        player.load(document.getElementById("url").value)
-    }
-</script>
-
 <style>
-    html,
     body {
+        width: 100%;
         height: 100%;
-        margin: 0
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        text-align: center;
     }
-    
-    input {
-        width: 500px;
-    }
-    
-    button {
-        width: 100px;
-    }
-    
-    div {
-        text-align: center
-    }
-    
+
     #main {
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column
     }
-    
+
     #submit {
         margin: 8px 8px 0px 8px
     }
-    
+
     #player {
         flex: 1;
         margin: 0px 8px 8px 8px
+    }
+
+    input {
+        width: 500px;
+    }
+
+    button {
+        width: 100px;
     }
 </style>
 
