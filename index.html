@@ -10,15 +10,13 @@
 </head>
 
 <body>
-    <div id="main">
-        <div id="submit">
-            <span>请输入视频地址：</span>
-            <input id="url" type="text">
-            <button id="play" onclick="play()">播放</button>
-            <hr>
-        </div>
-        <div id="player"></div>
+    <div id="submit">
+        <span>请输入视频地址：</span>
+        <input id="url" type="text">
+        <button id="play" onclick="play()">播放</button>
+        <hr>
     </div>
+    <div id="player"></div>
 </body>
 
 <script>
@@ -53,13 +51,8 @@
         padding: 0;
         position: absolute;
         text-align: center;
-    }
-
-    #main {
-        width: 100%;
-        height: 100%;
         display: flex;
-        flex-direction: column
+        flex-direction: column;
     }
 
     #submit {
@@ -71,11 +64,11 @@
         margin: 0px 8px 8px 8px
     }
 
-    input {
+    #url {
         width: 500px;
     }
 
-    button {
+    #play {
         width: 100px;
     }
 </style>
