@@ -19,30 +19,31 @@
         </div>
         <div id="player"></div>
     </div>
-    <script>
-        var player = new Clappr.Player({
-            source: 'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4',
-            parentId: "#player",
-            height: '100%',
-            width: '100%',
-            autoPlay: true,
-            loop: true,
-        })
-
-        var input = document.getElementById("url");
-        input.addEventListener("keyup", function (event) {
-            event.preventDefault();
-            if (event.keyCode === 13) {
-                document.getElementById("play").click();
-            }
-        })
-
-        function play() {
-            player.load(document.getElementById("url").value)
-            document.getElementById("url").value = ""
-        }
-    </script>
 </body>
+
+<script>
+    var player = new Clappr.Player({
+        source: 'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4',
+        parentId: "#player",
+        height: '100%',
+        width: '100%',
+        autoPlay: true,
+        loop: true,
+    })
+
+    var input = document.getElementById("url");
+    input.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("play").click();
+        }
+    })
+
+    function play() {
+        player.load(document.getElementById("url").value)
+        document.getElementById("url").value = ""
+    }
+</script>
 
 <style>
     body {
